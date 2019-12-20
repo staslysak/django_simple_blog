@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Tags
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5">Tags:</h1>
+  {% for tag in objs.object_list %}
+    <h5 class="card-title mt-0">
+      <a href="{{ tag.get_absolute_url }}">
+        {{tag.title}}
+      </a>
+    </h5>
+  {% endfor %}
+  
+  {% include 'blog/includes/pagination.html' %}
+
+{% endblock%}

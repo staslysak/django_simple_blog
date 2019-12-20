@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Post Update "{{obj.title}}" = {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <form action="{{ obj.get_update_url }}" method="post" style="width:100%">
+    {% csrf_token %}
+
+    {% for field in form %}
+      <div class="form-group">
+        {{field.label}}
+        {{field}}
+
+        {% if field.errors %}
+          <small class="form-text text-danger">{{field.errors}}</small>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <a href="{{obj.get_absolute_url}}" class="btn btn-light">
+      Cancel
+    </a>
+    <button type="submit" class="btn btn-primary">
+      Update Post
+    </button>
+  </form>
+{% endblock%}

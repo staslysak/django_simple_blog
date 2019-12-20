@@ -1,0 +1,12 @@
+.admin-panel {
+  padding: 20px;  
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  opacity: .3;
+}
+.admin-panel:hover {
+  opacity: 1;
+}

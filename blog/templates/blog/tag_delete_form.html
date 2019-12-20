@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Delete Tag "{{obj.title|title}}" = {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <form action="{{ obj.get_delete_url }}" method="post" style="width:100%">
+    {% csrf_token %}
+    <h3>
+      Are You Sure?
+    </h3>
+    <a href="{{obj.get_absolute_url}}" class="btn btn-light">
+      Cancel
+    </a>
+    <button type="submit" class="btn btn-danger">
+      Delete
+    </button>
+  </form>
+{% endblock%}
